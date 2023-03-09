@@ -13,6 +13,7 @@
 
 #include "motion.h"
 #include "quaternion.h"
+#include <vector>
 
 enum InterpolationType
 {
@@ -63,6 +64,7 @@ protected:
   // user define function, help compute an,bn
   void EulerFormControlPoint(Motion* pInputMotion, int startFrame, int N, vector* an, vector* bn);
   void EulerFormControlPosition(Motion* pInputMotion, int startFrame, int N, vector& an, vector& bn);
+  void QuaternionFormControlPoint(Motion* pInputMotion, int startFrame, int N, std::vector<Quaternion<double>>& an, std::vector<Quaternion<double>>& bn);
 
   // Bezier spline evaluation
   vector DeCasteljauEuler(double t, vector p0, vector p1, vector p2, vector p3); // evaluate Bezier spline at t, using DeCasteljau construction, vector version
